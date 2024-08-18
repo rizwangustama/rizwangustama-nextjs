@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --background-primary: #000319
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-primary);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .btn-primary{
+    @apply text-white px-[40px] py-[22px] bg-gradient-to-r from-ColorButtonPrimary to-ColorButtonSecondary font-medium text-lg flex items-center gap-2.5;
+  }
+  
+  .backgroundGradient {
+    border-width: 0.5px;
+    background: linear-gradient(300deg, rgba(12,14,35,1) 0%, rgba(4,7,29,1) 100%);
+  }
+  .backgroundCardWork {
+    background: linear-gradient(276deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%);
+  }
+  .backgroundIcon {
+    background: linear-gradient(300deg, rgba(12,14,35,1) 0%, rgba(4,7,29,1) 100%);
+  }
+}
+
+
+
+/* carousel  option*/
+.embla {
+  position: relative;
+  overflow: hidden;
+  /* max-width: 48rem; */
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 2.5rem;
+  --slide-size: 50%;
+}
+/* .embla__container {
+  display: flex;
+} */
+/* .embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+} */
+
+/* .embla__slide {
+  position: relative;
+  min-width: 50%;
+  flex: 0 0 auto;
+} */
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+
+
+.embla__slide__inner {
+  @apply border border-[#363749] border-opacity-[48%] rounded-[23px]; 
+  padding: 50px;
+  height: 100%;
+}
+
+.embla__slide__inner .jabatan {
+  @apply text-[14px] text-[#C1C2D3];
+}
+
+.cursorBlur{
+  position: absolute;
+  width: 250px; /* Sesuaikan dengan ukuran kursor */
+  height: 250px; /* Sesuaikan dengan ukuran kursor */
+  background-color: #fff; /* Contoh warna */
+  border-radius: 50%;
+  opacity: 50%;
+  filter: blur(200px);
+  pointer-events: none; /* Agar kursor tidak mengganggu interaksi lain */
+  transform: translate(-50%, -50%); /* Pusatkan kursor */
+  z-index: 9999; /* Pastikan kursor berada di atas elemen lain */
+}
